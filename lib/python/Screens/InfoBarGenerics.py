@@ -158,10 +158,7 @@ def streamrelayChecker(playref):
 	playrefstring = playref.toString()
 	if '%3a//' not in playrefstring and playrefstring in whitelist.streamrelay:
 		url = "http://%s:%s/" % (config.misc.softcam_streamrelay_url.getHTML(), config.misc.softcam_streamrelay_port.value)
-		if "127.0.0.1" in url:
-				playrefmod = ":".join([("%x" % (int(x[1], 16) + 1)).upper() if x[0] == 6 else x[1] for x in enumerate(playrefstring.split(':'))])
-		else:
-				playrefmod = playrefstring
+		playrefmod = ":".join([("%x" % (int(x[1], 16) + 1)).upper() if x[0] == 6 else x[1] for x in enumerate(playrefstring.split(':'))])
 		playref = eServiceReference("%s%s%s:%s" % (playrefmod, url.replace(":", "%3a"), playrefstring.replace(":", "%3a"), ServiceReference(playref).getServiceName()))
 		print("[Whitelist_StreamRelay] Play service via streamrelay as it is whitelisted as such", playref.toString())
 	return playref
@@ -1459,7 +1456,7 @@ class InfoBarSeek:
 		return (0, -n, 0, "<< %dx" % n)
 
 	def makeStateSlowMotion(self, n):
-		return (0, 0, n, "/%d" % n)
+		return (0, 0, n, "/ %d" % n)
 
 	def isStateForward(self, state):
 		return state[1] > 1
@@ -1801,12 +1798,15 @@ class InfoBarPVRState:
 		self.force_show = force_show
 
 	def _mayShow(self):
-		if self.shown and self.seekstate != self.SEEK_STATE_PLAY:
+		if self.shown:
 			self.pvrStateDialog.show()
 
 	def __playStateChanged(self, state):
 		playstateString = state[3]
+		playstate = playstateString.split()
 		self.pvrStateDialog["state"].setText(playstateString)
+		self.pvrStateDialog["statusicon"].setPixmapNum([">", '||', 'END', '>>', '<<', '/'].index(playstate[0]))
+		self.pvrStateDialog["speed"].setText(playstate[1] if len(playstate) > 1 else "")
 
 		# if we return into "PLAY" state, ensure that the dialog gets hidden if there will be no infobar displayed
 		if not config.usage.show_infobar_on_skip.value and self.seekstate == self.SEEK_STATE_PLAY and not self.force_show:
@@ -3197,8 +3197,6 @@ class InfoBarCueSheetSupport:
 	CUT_TYPE_OUT = 1
 	CUT_TYPE_MARK = 2
 	CUT_TYPE_LAST = 3
-	CUT_TYPE_START = 4
-	CUT_TYPE_END = 5
 
 	ENABLE_RESUME_SUPPORT = False
 
