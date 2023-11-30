@@ -2807,6 +2807,9 @@ msgstr "De vertraging in msec voordat de scrollende displaytekst start."
 msgid "Delay in miliseconds between scrolling characters on display."
 msgstr "De onderlinge vertraging in msec tussen de scrollende karakters op het display."
 
+msgid "Delay when closing a stream relay service before reallocating the tuner for another service. Using '0' is only recommended for boxes with multiple satellite tuners."
+msgstr "Vertraging bij het verlaten van een streamrelay-zender alvorens de tuner opnieuw wordt toegewezen aan een gewone zender. Het gebruik van '0' wordt alleen aanbevolen voor ontvangers met meerdere satelliettuners."
+
 msgid "Delete"
 msgstr "Verwijderen"
 
