@@ -2868,10 +2868,10 @@ msgid "Descramble sending http streams"
 msgstr "Decodeer verzonden http streams"
 
 msgid "Descramble service via streamrelay port"
-msgstr "Decodeer service via streamrelay-poort"
+msgstr "Decodeer zender via streamrelay-poort"
 
 msgid "Descramble service via streamrelay url"
-msgstr "Decodeer service via streamrelay-url"
+msgstr "Decodeer zender via streamrelay-url"
 
 msgid "Description"
 msgstr "Beschrijving"
