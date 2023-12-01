@@ -2635,9 +2635,6 @@ msgstr "DAC"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "Disable blink functionality for some areas like record icon."
-msgstr "Schakel knipperfunctionaliteit uit op plekken zoals het opnamepictogram."
-
 msgid "DMM advanced"
 msgstr "DMM geavanceerd"
 
@@ -3408,6 +3405,9 @@ msgstr "Wilt u de automatische Fastscan activeren"
 #, python-format
 msgid "Enable auto fastscan for %s"
 msgstr "Activeer automatische fastscan voor %s"
+
+msgid "Enable blink functionality for some areas like record icon."
+msgstr "Knipperfunctionaliteit inschakelen op sommige plekken zoals het opnamepictogram."
 
 msgid "Enable bluetooth audio"
 msgstr "Activeer bluetooth audio"
