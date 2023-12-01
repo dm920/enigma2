@@ -2635,6 +2635,9 @@ msgstr "DAC"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "Disable blink functionality for some areas like record icon."
+msgstr "Schakel knipperfunctionaliteit uit op plekken zoals het opnamepictogram."
+
 msgid "DMM advanced"
 msgstr "DMM geavanceerd"
 
