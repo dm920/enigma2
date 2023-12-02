@@ -2808,7 +2808,7 @@ msgid "Delay in miliseconds between scrolling characters on display."
 msgstr "De onderlinge vertraging in msec tussen de scrollende karakters op het display."
 
 msgid "Delay when closing a stream relay service before reallocating the tuner for another service. Using '0' is only recommended for boxes with multiple satellite tuners."
-msgstr "Vertragingstijd bij het schakelen van een streamrelay-zender naar een normale zender. Het gebruik van '0' wordt alleen aanbevolen voor ontvangers met meerdere satelliettuners."
+msgstr "Vertragingstijd tuner wanneer u van een streamrelay-zender naar een normale zender zapt. Het gebruik van '0' wordt enkel aanbevolen voor ontvangers met meerdere satelliettuners."
 
 msgid "Delete"
 msgstr "Verwijderen"
@@ -3368,6 +3368,9 @@ msgstr "Gebruik de ‘Neutrino manier' van zappen"
 
 msgid "Enable 5V for active antenna"
 msgstr "5V voor actieve antenne inschakelen"
+
+msgid "Enable blinking"
+msgstr "Knipperende pictogrammen inschakelen"
 
 msgid "Enable EIT EPG"
 msgstr "EIT EPG inschakelen"
