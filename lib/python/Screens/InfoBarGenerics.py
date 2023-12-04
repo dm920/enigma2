@@ -470,8 +470,8 @@ class InfoBarShowHide(InfoBarScreenSaver):
 					return ".hidevbi." in servicepath.lower()
 		return service and service.toString() in whitelist.vbi
 
-	def checkStreamrelay(self, service=None):
-		return (service or self.session.nav.getCurrentlyPlayingServiceReference()) and service.toString() in whitelist.streamrelay
+	def checkStreamrelay(self, service):
+		return (service and service.toString() in whitelist.streamrelay)
 
 	def showHideVBI(self):
 		if self.checkHideVBI():
@@ -490,17 +490,15 @@ class InfoBarShowHide(InfoBarScreenSaver):
 			open('/etc/enigma2/whitelist_vbi', 'w').write('\n'.join(whitelist.vbi))
 			self.showHideVBI()
 
-	def ToggleStreamrelay(self, service=None):
-		service = service or self.session.nav.getCurrentlyPlayingServiceReference()
-		if service:
-			servicestring = service.toString()
-			if servicestring in whitelist.streamrelay:
-				whitelist.streamrelay.remove(servicestring)
-			else:
-				whitelist.streamrelay.append(servicestring)
-				if self.session.nav.getCurrentlyPlayingServiceReference() == service:
-					self.session.nav.restartService()
-			open('/etc/enigma2/whitelist_streamrelay', 'w').write('\n'.join(whitelist.streamrelay))
+	def ToggleStreamrelay(self, service):
+		servicestring = service.toString()
+		if servicestring in whitelist.streamrelay:
+			whitelist.streamrelay.remove(servicestring)
+		else:
+			whitelist.streamrelay.append(servicestring)
+		if self.session.nav.getCurrentlyPlayingServiceReference() == service:
+			self.session.nav.restartService()
+		open('/etc/enigma2/whitelist_streamrelay', 'w').write('\n'.join(whitelist.streamrelay))
 
 class BufferIndicator(Screen):
 	def __init__(self, session):
@@ -3205,8 +3203,6 @@ class InfoBarCueSheetSupport:
 	CUT_TYPE_OUT = 1
 	CUT_TYPE_MARK = 2
 	CUT_TYPE_LAST = 3
-	CUT_TYPE_START = 4
-	CUT_TYPE_END = 5
 
 	ENABLE_RESUME_SUPPORT = False
 
