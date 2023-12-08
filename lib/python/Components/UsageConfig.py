@@ -247,35 +247,6 @@ def InitUsageConfig():
 		("5", "DVB-T/-S/-C"),
 		("127", _("No priority"))])
 
-	config.usage.frontled_color = ConfigSelection(default="1", choices=[
-		("0", _("Off")),
-		("1", _("Blue")),
-		("2", _("Red")),
-		("3", _("Blinking blue")),
-		("4", _("Blinking red"))
-	])
-	config.usage.frontledrec_color = ConfigSelection(default="3", choices=[
-		("0", _("Off")),
-		("1", _("Blue")),
-		("2", _("Red")),
-		("3", _("Blinking blue")),
-		("4", _("Blinking red"))
-	])
-	config.usage.frontledstdby_color = ConfigSelection(default="0", choices=[
-		("0", _("Off")),
-		("1", _("Blue")),
-		("2", _("Red")),
-		("3", _("Blinking blue")),
-		("4", _("Blinking red"))
-	])
-	config.usage.frontledrecstdby_color = ConfigSelection(default="3", choices=[
-		("0", _("Off")),
-		("1", _("Blue")),
-		("2", _("Red")),
-		("3", _("Blinking blue")),
-		("4", _("Blinking red"))
-	])
-
 	def remote_fallback_changed(configElement):
 		if configElement.value:
 			configElement.value = "%s%s" % (not configElement.value.startswith("http://") and "http://" or "", configElement.value)
@@ -802,35 +773,48 @@ def InitUsageConfig():
 	config.misc.softcam_setup.extension_menu = ConfigYesNo(default=True)
 	config.misc.softcam_streamrelay_url = ConfigIP(default=[127, 0, 0, 1], auto_jump=True)
 	config.misc.softcam_streamrelay_port = ConfigInteger(default=17999, limits=(0, 65535))
-	config.misc.softcam_streamrelay_delay = ConfigSelectionNumber(min=0, max=2000, stepwidth=50, default=0, wraparound=True)
+	config.misc.softcam_streamrelay_delay = ConfigSelectionNumber(min=0, max=2000, stepwidth=50, default=100, wraparound=True)
 
 	config.ntp = ConfigSubsection()
 
 	def timesyncChanged(configElement):
-		if configElement.value == "dvb" or (configElement.value == "auto" and not GetIPsFromNetworkInterfaces()):
-			eDVBLocalTimeHandler.getInstance().setUseDVBTime(True)
-			eEPGCache.getInstance().timeUpdated()
+		if configElement.value == "ntp" or configElement.value == "auto":
+			if not os.path.isfile('/var/spool/cron/crontabs/root') or not 'ntpdate-sync' in open('/var/spool/cron/crontabs/root').read():
+				Console().ePopen("echo '30 * * * *    /usr/bin/ntpdate-sync silent' >> /var/spool/cron/crontabs/root")
+			if not os.path.islink('/etc/network/if-up.d/ntpdate-sync'):
+				Console().ePopen("ln -s /usr/bin/ntpdate-sync /etc/network/if-up.d/ntpdate-sync")
 		else:
+			if os.path.isfile('/var/spool/cron/crontabs/root'):
+				Console().ePopen("sed -i '/ntpdate-sync/d' /var/spool/cron/crontabs/root;")
+			if os.path.islink('/etc/network/if-up.d/ntpdate-sync'):
+				Console().ePopen("unlink /etc/network/if-up.d/ntpdate-sync")
+
+		if configElement.value == "ntp":
+			print("[UsageConfig] NTP enabled, DVB time disabled")
 			eDVBLocalTimeHandler.getInstance().setUseDVBTime(False)
-			eEPGCache.getInstance().timeUpdated()
-	config.ntp.timesync = ConfigSelection(default="dvb", choices=[("auto", _("auto")), ("dvb", _("Transponder Time")), ("ntp", _("Internet (ntp)"))])
+		elif configElement.value == "auto":
+			res = os.system('grep ntpdate /var/log/messages | tail -n 1 | grep -q "adjust time server"')
+			if res >> 8 == 0:
+				print("[UsageConfig] NTP auto and active, DVB time disabled")
+				eDVBLocalTimeHandler.getInstance().setUseDVBTime(False)
+			else:
+				res = os.system('/usr/bin/ntpdate-sync && sleep 5 && grep ntpdate /var/log/messages | tail -n 1 | grep -q "adjust time server"')
+				if res >> 8 == 0:
+					print("[UsageConfig] NTP auto and active, DVB time disabled")
+					eDVBLocalTimeHandler.getInstance().setUseDVBTime(False)
+				else:
+					print("[UsageConfig] NTP auto but not active, DVB time enabled")
+					eDVBLocalTimeHandler.getInstance().setUseDVBTime(True)
+		else:
+			print("[UsageConfig] NTP disabled, DVB time enabled")
+			eDVBLocalTimeHandler.getInstance().setUseDVBTime(True)
+
+		eEPGCache.getInstance().timeUpdated()
+
+	config.ntp.timesync = ConfigSelection(default="auto", choices=[("auto", _("auto")), ("dvb", _("Transponder Time")), ("ntp", _("Internet (ntp)"))])
 	config.ntp.timesync.addNotifier(timesyncChanged)
 	config.ntp.server = ConfigText("pool.ntp.org", fixed_size=False)
-	config.ntp.server_old = ConfigText("pool.ntp.org")
-	def setNTPServer(configElement):
-		if configElement.value != config.ntp.server_old.value and configElement.value != "" and " " not in configElement.value:
-			f = open("/etc/ntp.conf", "r")
-			lst = f.readlines()
-			f = open("/etc/ntp.conf", "w")
-			for x in lst:
-				x1 = x.split()
-				if len(x1) > 1 and x1[0] == "server":
-					x1[1] = configElement.value
-					x = " ".join(x1) +"\n"
-				f.write(x)
-			f.close()
-			config.ntp.server_old.value = configElement.value
-	config.ntp.server.addNotifier(setNTPServer, immediate_feedback=False)
+
 
 def updateChoices(sel, choices):
 	if choices:
