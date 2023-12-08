@@ -23,7 +23,6 @@ config.misc.plugin_style = ConfigSelection(default='normallstyle', choices=[
 	('newstyle2', _('Style 2')),
 	('newstyle3', _('Style 3'))])
 
-
 profile("SetupDevices")
 import Components.SetupDevices
 Components.SetupDevices.InitSetupDevices()
