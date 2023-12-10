@@ -10,12 +10,12 @@ class AudioIcon(Renderer):
 		self.size = None
 		self.width = 51
 		self.height = 30
-		self.nameAudioCache = { }
+		self.nameAudioCache = {}
 		self.pngname = ""
 		self.path = ""
 
 	def applySkin(self, desktop, parent):
-		attribs = [ ]
+		attribs = []
 		for (attrib, value) in self.skinAttributes:
 			if attrib == "path":
 				self.path = value
@@ -24,7 +24,7 @@ class AudioIcon(Renderer):
 				else:
 					self.path = value + "/"
 			else:
-				attribs.append((attrib,value))
+				attribs.append((attrib, value))
 			if attrib == "size":
 				value = value.split(',')
 				if len(value) == 2:
@@ -57,7 +57,7 @@ class AudioIcon(Renderer):
 				self.pngname = pngname
 
 	def findAudioIcon(self, audioName):
-		pngname =  resolveFilename(SCOPE_GUISKIN, self.path + audioName + ".svg")
+		pngname = resolveFilename(SCOPE_GUISKIN, self.path + audioName + ".svg")
 		if fileExists(pngname):
 			return pngname
 		return ""
