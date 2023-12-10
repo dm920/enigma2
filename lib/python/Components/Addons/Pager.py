@@ -41,7 +41,7 @@ class Pager(GUIAddon):
 		elif hasattr(self.source, "onSelChanged"):
 			if self.initPager not in self.source.onSelChanged:
 				self.source.onSelChanged.append(self.initPager)
-				
+
 		self.initPager()
 
 	GUI_WIDGET = eListbox
