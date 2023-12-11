@@ -25,7 +25,7 @@ class ScreenHeader(GUIAddon):
 		self.backgroundColor = 0x000000
 
 	def onContainerShown(self):
-		for x, val in self.sources.items():
+		for x, val in list(self.sources.items()):
 			if self.constructTitleItem not in val.onChanged:
 				val.onChanged.append(self.constructTitleItem)
 		self.l.setItemHeight(self.instance.size().height())
@@ -70,7 +70,7 @@ class ScreenHeader(GUIAddon):
 
 	def constructTitleItem(self):
 		sequence = []
-		for x, val in self.sources.items():
+		for x, val in list(self.sources.items()):
 			if isinstance(val, StaticText) and val.text:
 				if val not in sequence:
 					sequence.append(val)
