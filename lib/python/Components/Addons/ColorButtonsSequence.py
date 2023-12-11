@@ -32,7 +32,7 @@ class ColorButtonsSequence(GUIAddon):
 		self.textRenderer = Label("")
 
 	def onContainerShown(self):
-		for x, val in self.sources.items():
+		for x, val in list(self.sources.items()):
 			if self.constructColorButtonSequence not in val.onChanged:
 				val.onChanged.append(self.constructColorButtonSequence)
 		self.textRenderer.GUIcreate(self.relatedScreen.instance)
@@ -60,7 +60,7 @@ class ColorButtonsSequence(GUIAddon):
 		pic = None
 		pixd_width = 0
 
-		for x, val in sequence.items():
+		for x, val in list(sequence.items()):
 			textColor = self.foreColor
 			if x in self.colors:
 				textColor = parseColor(self.colors[x]).argb()
@@ -110,7 +110,7 @@ class ColorButtonsSequence(GUIAddon):
 
 	def constructColorButtonSequence(self):
 		sequence = {}
-		for x, val in self.sources.items():
+		for x, val in list(self.sources.items()):
 			if hasattr(val, "text") and val.text:
 				sequence[x] = val
 
