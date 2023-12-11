@@ -427,7 +427,7 @@ class ChannelContextMenu(Screen):
 			for file in os.listdir("/etc/enigma2/"):
 				if file.startswith("userbouquet") and file.endswith(".del"):
 					file = "/etc/enigma2/" + file
-					print("permantly remove file ", file)
+					print(("permantly remove file ", file))
 					os.remove(file)
 			self.close()
 
@@ -435,7 +435,7 @@ class ChannelContextMenu(Screen):
 		for file in os.listdir("/etc/enigma2/"):
 			if file.startswith("userbouquet") and file.endswith(".del"):
 				file = "/etc/enigma2/" + file
-				print("restore file ", file[:-4])
+				print(("restore file ", file[:-4]))
 				os.rename(file, file[:-4])
 		eDVBDBInstance = eDVBDB.getInstance()
 		eDVBDBInstance.setLoadUnlinkedUserbouquets(True)
@@ -1025,7 +1025,7 @@ class ChannelSelectionEdit:
 				if mutableAlternatives:
 					mutableAlternatives.setListName(name)
 					if mutableAlternatives.addService(cur_service.ref):
-						print("add", cur_service.ref.toString(), "to new alternatives failed")
+						print(("add", cur_service.ref.toString(), "to new alternatives failed"))
 					mutableAlternatives.flushChanges()
 					self.servicelist.addService(new_ref.ref, True)
 					self.servicelist.removeCurrent()
@@ -1038,7 +1038,7 @@ class ChannelSelectionEdit:
 				else:
 					print("get mutable list for new created alternatives failed")
 			else:
-				print("add", str, "to", cur_root.getServiceName(), "failed")
+				print(("add", str, "to", cur_root.getServiceName(), "failed"))
 		else:
 			print("bouquetlist is not editable")
 
@@ -1060,7 +1060,7 @@ class ChannelSelectionEdit:
 					if services is not None:
 						for service in services:
 							if mutableBouquet.addService(service):
-								print("add", service.toString(), "to new bouquet failed")
+								print(("add", service.toString(), "to new bouquet failed"))
 					mutableBouquet.flushChanges()
 				else:
 					print("get mutable list for new created bouquet failed")
@@ -1073,7 +1073,7 @@ class ChannelSelectionEdit:
 					self.servicelist.addService(new_bouquet_ref)
 					self.servicelist.resetRoot()
 			else:
-				print("add", str, "to bouquets failed")
+				print(("add", str, "to bouquets failed"))
 		else:
 			print("bouquetlist is not editable")
 
@@ -1112,7 +1112,7 @@ class ChannelSelectionEdit:
 
 	def removeBouquet(self):
 		refstr = self.getCurrentSelection().toString()
-		print("removeBouquet", refstr)
+		print(("removeBouquet", refstr))
 		pos = refstr.find('FROM BOUQUET "')
 		filename = None
 		self.removeCurrentService(bouquet=True)
