@@ -26,7 +26,7 @@ class ButtonSequence(GUIAddon):
 		self.pixmaps = {}
 
 	def onContainerShown(self):
-		for x, val in list(self.sources.items()):
+		for x, val in self.sources.items():
 			if self.constructButtonSequence not in val.onChanged:
 				val.onChanged.append(self.constructButtonSequence)
 		self.l.setItemHeight(self.instance.size().height())
@@ -72,7 +72,7 @@ class ButtonSequence(GUIAddon):
 
 	def constructButtonSequence(self):
 		sequence = []
-		for x, val in list(self.sources.items()):
+		for x, val in self.sources.items():
 			if isinstance(val, Boolean) and val.boolean:
 				if x not in sequence:
 					sequence.append(x)
