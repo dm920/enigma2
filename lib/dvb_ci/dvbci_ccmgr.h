@@ -45,9 +45,7 @@ class eDVBCICcSession: public eDVBCISession
 		SRM_DATA = 31,
 		SRM_CONFIRM = 32,
 
-		CRITICAL_SEC_UPDATE = 49,
-
-		MAX_ELEMENTS = 50
+		MAX_ELEMENTS = 33
 	};
 
 	struct ciplus_element

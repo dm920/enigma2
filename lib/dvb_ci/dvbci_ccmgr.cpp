@@ -296,8 +296,6 @@ void eDVBCICcSession::cc_sac_sync_req(const uint8_t *data, unsigned int len)
 	/* status OK */
 	dest[pos++] = 0;
 
-	set_descrambler_key();
-
 	cc_sac_send(sync_cnf_tag, dest, pos);
 }
 
@@ -436,7 +434,7 @@ int eDVBCICcSession::data_req_handle_new(unsigned int id)
 {
 	switch (id)
 	{
-		case AKH
+		case 22:
 		{
 			uint8_t akh[32], host_id[8];
 
@@ -453,13 +451,6 @@ int eDVBCICcSession::data_req_handle_new(unsigned int id)
 				if (!m_ci_elements.set(HOST_ID, host_id, 8))
 					eWarning("[CI RCC] can not set host_id in elements");
 			}
-			break;
-		}
-		case CRITICAL_SEC_UPDATE:
-		{
-			uint8_t csu[1];
-			csu[0] = 0x00;
-			m_ci_elements.set(CRITICAL_SEC_UPDATE, csu, 1);
 			break;
 		}
 		default:
@@ -766,6 +757,7 @@ void eDVBCICcSession::check_new_key()
 	m_descrambler_odd_even = slot;
 	m_descrambler_new_key = true;
 
+	set_descrambler_key();
 
 	m_ci_elements.invalidate(KP);
 	m_ci_elements.invalidate(KEY_REGISTER);
