@@ -1084,13 +1084,13 @@ msgstr "Audio PID"
 
 #, python-format
 msgid "Audio PID%s, codec & lang"
-msgstr "Audio PID%s, codec & lang"
+msgstr "Audio PID%s, codec & taal"
 
 msgid "Audio auto volume level"
 msgstr "Automatisch volume"
 
 msgid "Audio description for the visually impaired"
-msgstr "Audiobeschrijving voor visueel gehandicapten"
+msgstr "Audiobeschrijving voor blinden en slechtzienden"
 
 msgid "Audio language selection 1"
 msgstr "Audio. Taalkeuze 1"
@@ -1607,7 +1607,7 @@ msgid "Cayman Islands"
 msgstr "Cayman eilanden"
 
 msgid "Center DVB subtitles"
-msgstr "Centreer ondertitels"
+msgstr "Centreer DVB ondertitels"
 
 msgid "Center time-labels and remove date"
 msgstr "Centreer de tijds-labels en verwijder de datum"
@@ -2657,7 +2657,7 @@ msgid "DVB CI Delay"
 msgstr "DVB CI vertraging"
 
 msgid "DVB Subtitles PID & lang"
-msgstr "DVD ondertitels PID & lang"
+msgstr "DVB ondertitels PID & taal"
 
 msgid "DVB driver version: "
 msgstr "DVB driver versie: "
@@ -2808,7 +2808,7 @@ msgid "Delay in miliseconds between scrolling characters on display."
 msgstr "De onderlinge vertraging in msec tussen de scrollende karakters op het display."
 
 msgid "Delay when closing a stream relay service before reallocating the tuner for another service. Using '0' is only recommended for boxes with multiple satellite tuners."
-msgstr ""
+msgstr "Vertragingstijd tuner wanneer u van een streamrelay-zender naar een normale zender zapt. Het gebruik van '0' wordt enkel aanbevolen voor ontvangers met meerdere satelliettuners."
 
 msgid "Delete"
 msgstr "Verwijderen"
@@ -2867,13 +2867,11 @@ msgstr "Decodeer ontvangen http streams"
 msgid "Descramble sending http streams"
 msgstr "Decodeer verzonden http streams"
 
-#, fuzzy
 msgid "Descramble service via streamrelay port"
-msgstr "Decodeer ontvangen http streams"
+msgstr "Decodeer streamrelay-zenders via poort"
 
-#, fuzzy
 msgid "Descramble service via streamrelay url"
-msgstr "Decodeer ontvangen http streams"
+msgstr "Decodeer streamrelay-zenders via url"
 
 msgid "Description"
 msgstr "Beschrijving"
@@ -3409,11 +3407,11 @@ msgid "Enable auto fastscan for %s"
 msgstr "Activeer automatische fastscan voor %s"
 
 msgid "Enable blink functionality for some areas like record icon."
-msgstr ""
+msgstr "Knipperfunctionaliteit inschakelen op sommige plekken zoals het opnamepictogram."
 
 #, fuzzy
 msgid "Enable blinking"
-msgstr "Virgin EPG inschakelen"
+msgstr "Knipperende pictogrammen inschakelen"
 
 msgid "Enable bluetooth audio"
 msgstr "Activeer bluetooth audio"
@@ -3547,7 +3545,7 @@ msgid "Enter an URL where alternative images could be listed for FlashImage. Ent
 msgstr "Voer een URL in waar alternatieve afbeeldingen kunnen worden gevonden t.b.v. FlashImage. Voer de tekst 'all' in voor automatische toegang tot een aantal alternatieve images."
 
 msgid "Enter if you are in the east or west hemisphere."
-msgstr "Geef aan of je je in het oostelijk of westelijk halfrond bevindt."
+msgstr "Geef aan of u zich in het oostelijk of westelijk halfrond bevindt."
 
 msgid "Enter if you are north or south of the equator."
 msgstr "Geef aan of u zich noordelijk of zuidelijk van de evenaar bevindt."
@@ -5220,7 +5218,7 @@ msgid "MB"
 msgstr "MB"
 
 msgid "MENU"
-msgstr ""
+msgstr "MENU"
 
 msgid "MHz"
 msgstr "MHz"
@@ -5597,7 +5595,7 @@ msgid "Myanmar"
 msgstr "Myanmar"
 
 msgid "N/A"
-msgstr "0.0 "
+msgstr "0.0"
 
 msgid "NEXT"
 msgstr "VOLGENDE"
@@ -6099,7 +6097,7 @@ msgid "Other Images"
 msgstr "Andere image"
 
 msgid "Other Subtitles & lang"
-msgstr "Andere Ondertitels & lang"
+msgstr "Andere Ondertitels & taal"
 
 msgid "Output"
 msgstr "Uitgang"
@@ -6150,14 +6148,14 @@ msgid "PPanel"
 msgstr "PPanel"
 
 msgid "PREVIOUS"
-msgstr ""
+msgstr "VORIGE"
 
 msgid "PULSe 4K(mini)"
 msgstr "PULSe 4K (mini)"
 
 #, fuzzy
 msgid "PVR"
-msgstr "OVR"
+msgstr "PVR"
 
 msgid "Package list update"
 msgstr "Pakketlijst vernieuwen"
@@ -6333,10 +6331,10 @@ msgid "Play recorded movies..."
 msgstr "Opname afspelen..."
 
 msgid "Play service with streamrelay"
-msgstr ""
+msgstr "Speel deze zender af met streamrelay"
 
 msgid "Play service without streamrelay"
-msgstr ""
+msgstr "Speel deze zender af zonder streamrelay"
 
 msgid "Please add titles to the compilation."
 msgstr "Voeg aub titels toe aan de compilatie"
@@ -6576,6 +6574,9 @@ msgstr "Plugins zoekmenu"
 
 msgid "Plugin browser"
 msgstr "Plugin browser"
+
+msgid "Plugin Browser Style (Need Restart GUI)"
+msgstr "Plugin Browser Stijl (E2 herstart nodig)"
 
 msgid "Plugin manager activity information"
 msgstr "Pluginmanager achtergrondinformatie"
@@ -6925,11 +6926,11 @@ msgid "Python frontend for /tmp/mmi.socket"
 msgstr "Python frontend voor /tmp/mmi.socket"
 
 msgid "Python version: "
-msgstr "Pythonversie:"
+msgstr "Python-versie:"
 
 #, fuzzy
 msgid "Pythonscript"
-msgstr "Shellscript"
+msgstr "Python-script"
 
 msgid "Qatar"
 msgstr "Qatar"
@@ -8113,7 +8114,7 @@ msgstr "Service info - tuner setting waardes"
 
 #, fuzzy
 msgid "Service info font size"
-msgstr "Zenderinfo"
+msgstr "Zenderinfo lettergrootte"
 
 msgid ""
 "Service invalid!\n"
@@ -8127,7 +8128,7 @@ msgstr "Zendernaam"
 
 #, fuzzy
 msgid "Service name font size"
-msgstr "Zendernaam"
+msgstr "Zendernaam Lettergrootte "
 
 msgid ""
 "Service not found!\n"
@@ -8138,7 +8139,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Service number font size"
-msgstr "Wijzig de lettergrootte van de ondertitels"
+msgstr "Zendernummering Lettergrootte "
 
 msgid "Service reference"
 msgstr "Zenderreferentie"
@@ -8368,7 +8369,7 @@ msgid "Show detailed event info"
 msgstr "Gedetailleerde EPG info weergeven"
 
 msgid "Show disabled timers (local only)"
-msgstr ""
+msgstr "Uitgeschakelde timers tonen"
 
 msgid "Show event details"
 msgstr "EPG details weergeven"
@@ -9079,9 +9080,8 @@ msgstr "Opgeslagen positie"
 msgid "Stream"
 msgstr "Stream"
 
-#, fuzzy
 msgid "Stream Relay delay"
-msgstr "Scroll vertraging"
+msgstr "Stream Relay vertraging"
 
 msgid "Stream request"
 msgstr "Stream verzoek"
@@ -9332,7 +9332,7 @@ msgid "TXT PID"
 msgstr "TXT PID"
 
 msgid "TXT Subtitles page & lang"
-msgstr "TXT Ondertitels page & lang"
+msgstr "TXT Ondertitels pagina & taal"
 
 msgid "Table of contents for collection"
 msgstr "Inhoudsoverzicht voor de verzameling"
@@ -9414,7 +9414,7 @@ msgid "The DVD standard doesn't support H.264 (HDTV) video streams. Do you want 
 msgstr "De DVD standaard ondersteunt geen H.264 (HDTV) videostreams. Wilt u een DVD aanmaken met een speciaal formaat (veel DVD spelers kunnen dat niet afspelen)?"
 
 msgid "The IP address from the streamrelay server that is used to descramble services that can only be encrypted via streamrelay"
-msgstr ""
+msgstr "Streamrelay server IP-adres dat er gebruikt wordt om streamrelay zenders te decoderen."
 
 msgid "The PIN code has been changed successfully."
 msgstr "De pincode is gewijzigd."
@@ -9512,7 +9512,7 @@ msgid "The path %s already exists."
 msgstr "Het pad %s bestaat al."
 
 msgid "The port from the streamrelay server that is used to descramble services that can only be encrypted via streamrelay"
-msgstr ""
+msgstr "Streamrelay server poort dat er gebruikt wordt om streamrelay zenders te decoderen."
 
 #, python-format
 msgid "The results have been written to %s"
@@ -10655,7 +10655,7 @@ msgid "Virtual keyboard"
 msgstr "Virtueel toetsenbord"
 
 msgid "Visually impaired commentary"
-msgstr "Commentaar t.b.v. de visueel gehandicapten"
+msgstr "Commentaar t.b.v. blinden en slechtzienden"
 
 msgid "Voltage mode"
 msgstr "Spanningsmodus"
@@ -11968,7 +11968,7 @@ msgstr "menu"
 
 #, fuzzy
 msgid "min"
-msgstr " min"
+msgstr "min"
 
 msgid "mins"
 msgstr "min"
@@ -12535,7 +12535,7 @@ msgid "®"
 msgstr "®"
 
 msgid "°E"
-msgstr ""
+msgstr "°O"
 
 msgid "°W"
-msgstr ""
+msgstr "°W"
