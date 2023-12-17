@@ -8104,13 +8104,13 @@ msgid "Service info - service & Extended PID Info"
 msgstr "Zenderinfo - service & uitgebreide PID info"
 
 msgid "Service info - service & PIDs"
-msgstr "Service info - service & PIDs"
+msgstr "Zenderinfo - service & PIDs"
 
 msgid "Service info - tuner live values"
-msgstr "Service info - actieve tunerwaardes"
+msgstr "Zenderinfo - actieve tunerwaardes"
 
 msgid "Service info - tuner setting values"
-msgstr "Service info - tuner setting waardes"
+msgstr "Zenderinfo - tuner setting waardes"
 
 #, fuzzy
 msgid "Service info font size"
@@ -8128,7 +8128,7 @@ msgstr "Zendernaam"
 
 #, fuzzy
 msgid "Service name font size"
-msgstr "Zendernaam Lettergrootte "
+msgstr "Zendernaam lettergrootte "
 
 msgid ""
 "Service not found!\n"
@@ -8139,7 +8139,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Service number font size"
-msgstr "Zendernummering Lettergrootte "
+msgstr "Zendernummering lettergrootte "
 
 msgid "Service reference"
 msgstr "Zenderreferentie"
