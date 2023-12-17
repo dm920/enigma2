@@ -9595,7 +9595,7 @@ msgid "This DVD RW medium is already formatted - reformatting will erase all con
 msgstr "Dit DVD-RW medium is reeds geformatteerd - herformatteren zal alles wissen op deze disk."
 
 msgid "This allows you to change the font size relative to skin size, so 1 increases by 1 point size, and -1 decreases by 1 point size"
-msgstr ""
+msgstr "Hiermee kunt u het lettertype grootte aanpassen in verhouding met de skin. +1 vergroot 1 punt maat en -1 verkleint 1 punt maat"
 
 msgid "This bouquet is protected by a parental control PIN"
 msgstr "Dit bouquet is beschermd met een pincode t.b.v. het kinderslot."
