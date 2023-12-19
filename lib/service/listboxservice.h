@@ -63,6 +63,7 @@ public:
 		celServiceInfo, // "now" event
 		celServiceNextInfo, // "next" event
 		celServiceTypePixmap,
+		celServiceInfoRemainingTime,
 		celElements
 	};
 
@@ -116,7 +117,7 @@ public:
 	void setTextTime(const std::string &string) { m_text_time = string; }
 	void setTextSeparator(const std::string &string) { m_separator = string; }
 	void setMarkerTextAlignment(const std::string &string) { m_marker_alignment = string; } // currently supports left and center
-	void setMarkerLineColor(const gRGB &col) {
+	void setMarkerLineColor(const gRGB &col) { 
 		m_markerline_color = col;
 		m_markerline_color_set = 1;
 	}
@@ -146,6 +147,10 @@ public:
 		serviceEventProgressbarBorderColor,
 		serviceEventProgressbarBorderColorSelected,
 		serviceRecorded,
+		eventRemainingForeground,
+		eventRemainingForegroundSelected,
+		eventRemainingForegroundFallback,
+		eventRemainingForegroundSelectedFallback,
 		colorElements
 	};
 
