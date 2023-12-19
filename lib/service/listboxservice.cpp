@@ -867,7 +867,7 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 				yoffs = m_has_next_event ? ctrlHeight - 2 : 5;
 			}
 			if (!isMarker && !isDirectory) {
-				ePtr<gPixmap> &pixmap =  service_res_str == "1f" ? m_pixmaps[pic4K] : (service_res_str == "19" || service_res_str == "11") ?
+				ePtr<gPixmap> &pixmap =  service_res_str == "1f" ? m_pixmaps[pic4K] : (service_res_str == "19" || service_res_str == "11") ? 
 					m_pixmaps[picHD] : m_pixmaps[picSD];
 
 				if (pixmap)
@@ -1144,7 +1144,7 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 							painter.setForegroundColor(m_color[eventForegroundSelected]);
 						}
 						else
-							painter.setForegroundColor(gRGB(0x787878));
+							painter.setForegroundColor(gRGB(0xe7b53f));
 
 						if (serviceFallback && !selected && m_color_set[eventForegroundFallback]) // fallback receiver
 						{
@@ -1212,7 +1212,7 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 						//------------------------------------------------ Event remaining ------------------------------------------------------------------------
 						std::string timeLeft_str = "";
 						char buffer[15];
-						snprintf(buffer, sizeof(buffer), "%s%d %s", timeLeft == 0 ? "" : "+", timeLeft/60, m_text_time.c_str());
+						snprintf(buffer, sizeof(buffer), "%s%d %s", timeLeft < 60 ? "" : "+", timeLeft/60, m_text_time.c_str());
 						timeLeft_str = buffer;
 						ePtr<eTextPara> paraLeft = new eTextPara(eRect(0, 0, m_itemsize.width(), m_itemheight/2));
 						paraLeft->setFont(m_element_font[celServiceInfoRemainingTime]);
