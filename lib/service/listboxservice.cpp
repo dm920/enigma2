@@ -867,7 +867,7 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 				yoffs = m_has_next_event ? ctrlHeight - 2 : 5;
 			}
 			if (!isMarker && !isDirectory) {
-				ePtr<gPixmap> &pixmap =  service_res_str == "1f" ? m_pixmaps[pic4K] : (service_res_str == "19" || service_res_str == "11") ?
+				ePtr<gPixmap> &pixmap =  service_res_str == "1f" ? m_pixmaps[pic4K] : (service_res_str == "19" || service_res_str == "11") ? 
 					m_pixmaps[picHD] : m_pixmaps[picSD];
 
 				if (pixmap)
@@ -1168,7 +1168,7 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 
 					//------------------------------------------------- Event name ------------------------------------------------------------------------------
 					if (m_has_next_event) {
-						ePtr<eTextPara> para = new eTextPara(eRect(0, 0, m_itemsize.width() - pb_xpos - m_items_distances - progressBarRect.width() - 15, m_itemheight/2));
+						ePtr<eTextPara> para = new eTextPara(eRect(0, 0, pb_xpos - service_name_end - m_items_distances - 15, m_itemheight/2));
 						para->setFont(m_element_font[celServiceInfo]);
 						para->renderString(text.c_str());
 						eRect bbox = para->getBoundBox();
