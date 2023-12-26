@@ -7,9 +7,11 @@ hw_info = None
 class HardwareInfo:
 	device_name = _("unavailable")
 	device_brandname = None
+	device_model = None
 	device_version = ""
 	device_revision = ""
 	device_hdmi = False
+
 
 	def __init__(self):
 		global hw_info
@@ -52,23 +54,30 @@ class HardwareInfo:
 
 		self.device_hdmi = BoxInfo.getItem('hdmi')
 
+
 	def get_device_name(self):
 		return hw_info.device_name
+
 
 	def get_device_model(self):
 		return hw_info.device_model
 
+
 	def get_device_version(self):
 		return hw_info.device_version
+
 
 	def get_device_revision(self):
 		return hw_info.device_revision
 
+
 	def get_device_string(self):
 		return hw_info.device_string
 
+
 	def get_machine_name(self):
 		return hw_info.machine_name
+
 
 	def has_hdmi(self):
 		return hw_info.device_hdmi
