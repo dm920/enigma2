@@ -32,6 +32,7 @@ def getFlashDateString():
 def returndate(date):
     return "%s-%s-%s" % (date[:4], date[4:6], date[6:8])
 
+
 def getBuildDateString():
 	return returndate(BoxInfo.getItem("compiledate"))
 
@@ -215,6 +216,7 @@ def getBoxUptime():
 		return "%s" % time
 	except:
 		return '-'
+
 
 def getOpenSSLVersion():
 	process = Popen(("/usr/bin/openssl", "version"), stdout=PIPE, stderr=PIPE, universal_newlines=True)
