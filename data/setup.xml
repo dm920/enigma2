@@ -10,6 +10,7 @@
 		<item level="1" text="Sort order for menu entries" description="This option allows you to hide and sort menu entries. When selecting user you can change order and hide menu items via the blue button. With the user defined hidden the blue button is not shown in the menus">config.usage.menu_sort_mode</item>
 		<item level="1" text="Sort order for setup entries" description="This option allows you to alphabetically sort setup menu entries.">config.usage.sort_settings</item>
 		<item level="1" text="Show screen path" description="This option allows you to show the full screen path leading to the current screen.">config.usage.showScreenPath</item>
+		<item level="0" text="Plugin Browser Style (Need Restart GUI)" description="This option allows you to select the plugin browser style (Need Restart GUI).">config.misc.plugin_style</item>
 		<item level="0" text="Show menu or plugin numbers" description="This option allows you to show menu and/or plugin number quick links.">config.usage.menu_show_numbers</item>
 		<item level="2" text="Show softcam setup in extensions menu" description="This option allows you to add the softcam setup in the extensions menu." requires="HasSoftcamInstalled">config.misc.softcam_setup.extension_menu</item>
 		<item level="1" text="Zap mode" requires="ZapMode" description="Configure the way in which the receiver changes channels.">config.misc.zapmode</item>
@@ -235,6 +236,10 @@
 		<item level="0" text="Brightness" description="Configure the brightness level of the front panel display.">config.lcd.bright</item>
 		<item level="0" text="Contrast" description="Configure the contrast level of the front panel display.">config.lcd.contrast</item>
 		<item level="0" text="Standby" description="Configure the brightness level of the front panel display during standby.">config.lcd.standby</item>
+		<item level="0" text="LED color during normal operations" description="Configure front LED color during normal operations (this requires an enigma2 restart).">config.usage.frontled_color</item>
+		<item level="0" text="LED color during recording" description="Configure front LED color during recording (this requires an enigma2 restart).">config.usage.frontledrec_color</item>
+		<item level="0" text="LED color during standby" description="Configure front LED color during standby (this requires an enigma2 restart).">config.usage.frontledstdby_color</item>
+		<item level="0" text="LED color during recording in standby" description="Configure front LED color during recording in standby (this requires an enigma2 restart).">config.usage.frontledrecstdby_color</item>
 		<item level="0" text="Power LED" description="Turn on the power LED." requires="PowerLED">config.usage.powerLED</item>
 		<item level="0" text="Standby LED" description="Turn on the power LED during standby." requires="StandbyLED">config.usage.standbyLED</item>
 		<item level="0" text="Deep Standby LED" description="Turn on the power LED during deep standby." requires="SuspendLED">config.usage.suspendLED</item>
