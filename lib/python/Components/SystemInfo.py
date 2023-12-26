@@ -2,7 +2,6 @@ import re
 from hashlib import md5
 from enigma import Misc_Options, eDVBCIInterfaces, eDVBResourceManager, eGetEnigmaDebugLvl
 from Tools.Directories import SCOPE_PLUGINS, fileCheck, fileExists, fileHas, pathExists, resolveFilename
-from Tools.HardwareInfo import HardwareInfo
 
 SystemInfo = {}
 
@@ -193,7 +192,7 @@ SystemInfo["HasHDMIpreemphasis"] = fileCheck("/proc/stb/hdmi/preemphasis")
 SystemInfo["HasColorimetry"] = fileCheck("/proc/stb/video/hdmi_colorimetry")
 SystemInfo["HasHdrType"] = fileCheck("/proc/stb/video/hdmi_hdrtype")
 SystemInfo["HasScaler_sharpness"] = pathExists("/proc/stb/vmpeg/0/pep_scaler_sharpness")
-SystemInfo["HasHDMIin"] = BoxInfo.getItem("dmifhdin") or BoxInfo.getItem("hdmihdin")
+SystemInfo["HasHDMIin"] = BoxInfo.getItem("hdmifhdin") or BoxInfo.getItem("hdmihdin")
 SystemInfo["HasHDMI-CEC"] = BoxInfo.getItem("hdmi") and fileExists(resolveFilename(SCOPE_PLUGINS, "SystemPlugins/HdmiCEC/plugin.pyc")) and (fileExists("/dev/cec0") or fileExists("/dev/hdmi_cec") or fileExists("/dev/misc/hdmi_cec0"))
 SystemInfo["HasYPbPr"] = model in ("dm8000", "et5000", "et6000", "et6500", "et9000", "et9200", "et9500", "et10000", "formuler1", "mbtwinplus", "spycat", "vusolo", "vuduo", "vuduo2", "vuultimo")
 SystemInfo["HasScart"] = model in ("dm8000", "et4000", "et6500", "et8000", "et9000", "et9200", "et9500", "et10000", "formuler1", "hd1100", "hd1200", "hd1265", "hd2400", "vusolo", "vusolo2", "vuduo", "vuduo2", "vuultimo", "vuuno", "xp1000")
