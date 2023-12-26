@@ -1,4 +1,5 @@
 from Tools.Directories import SCOPE_SKIN, resolveFilename
+from Components.SystemInfo import BoxInfo
 
 hw_info = None
 
