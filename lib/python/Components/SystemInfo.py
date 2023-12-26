@@ -2,6 +2,7 @@ import re
 from hashlib import md5
 from enigma import Misc_Options, eDVBCIInterfaces, eDVBResourceManager, eGetEnigmaDebugLvl
 from Tools.Directories import SCOPE_PLUGINS, fileCheck, fileExists, fileHas, pathExists, resolveFilename
+from Tools.HardwareInfo import HardwareInfo
 
 SystemInfo = {}
 
