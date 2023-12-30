@@ -6585,7 +6585,7 @@ msgid "Plugin manager help"
 msgstr "Pluginmanager helpfunctie"
 
 msgid "Plugins"
-msgstr "Plugins"
+msgstr "Applicaties"
 
 msgid "Poland"
 msgstr "Polen"
@@ -6636,7 +6636,7 @@ msgid "Positioner"
 msgstr "Rotor"
 
 msgid "Positioner (selecting satellites)"
-msgstr "Rotor (selecteert satellieten)"
+msgstr "Rotor (satellieten selecteren)"
 
 msgid "Positioner setup"
 msgstr "Rotorinstellingen"
