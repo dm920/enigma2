@@ -13,7 +13,7 @@ from Tools.Multiboot import getMultibootStartupDevice, getMultibootslots  # This
 
 class BoxInformation:
 	def __init__(self, root=""):
-		boxInfoCollector = {}
+		boxInfoCollector = {"machine": "default"} #add one key to the boxInfoCollector as it always should exist to satisfy the CI test on github
 		self.boxInfoMutable = {}
 		boxInfoCollector["checksum"] = None
 		checksumcollectionstring = ""
@@ -124,7 +124,7 @@ def getBootdevice():
 	return dev
 
 
-model = BoxInfo.getItem("machine", default="unknown")
+model = BoxInfo.getItem("machine")
 
 SystemInfo["RecoveryMode"] = fileCheck("/proc/stb/fp/boot_mode")
 SystemInfo["InDebugMode"] = eGetEnigmaDebugLvl() >= 4
